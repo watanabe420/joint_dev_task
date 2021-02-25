@@ -5,7 +5,8 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.push("斉藤")
+  #names.push("斉藤")：コメントRubyでは << を使用する方が一般的
+  names << "斉藤"
   puts names
 end
 
@@ -29,6 +30,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
+  sports.compact!
 
   # 以下は変更しないで下さい
   p sports
@@ -39,20 +41,25 @@ def q5
   array2 = [1, 5, 8, 10]
 
   # 以下に回答を記載
-
+  p (array1).none?
+  p (array2).none?
 end
+
+
 
 def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
-
+  numbers2 = numbers1.map { |number| number * 10 }
+  p numbers2
 end
 
 def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
+  array.map! { |x| x.to_i }
 
   # 以下は変更しないで下さい
   p array
