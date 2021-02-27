@@ -59,7 +59,8 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  array.map! { |x| x.to_i }
+  #array.map! { |x| x.to_i } コメント⇨&:でより簡潔に記述可能
+  array.map!(&:to_i)
 
   # 以下は変更しないで下さい
   p array
@@ -71,6 +72,7 @@ def q8
   # 以下に回答を記載
   programming_languages.map!(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
+  
   # 以下は変更しないで下さい
   p programming_languages
   p upper_case_programming_languages
@@ -90,7 +92,8 @@ def q10
 
   # 以下に回答を記載
   foods.each do |food|
-    if( food.include?("うに") ) then
+    #if( food.include?("うに") ) then コメント：rubyの場合if()やthenの文字列は不要
+    if food.include?("うに")
       puts "#{food}:好物です"
     else
       puts "#{food}:まあまあ好きです"
@@ -102,10 +105,12 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
-  newsports = sports.flatten.uniq
+  #newsports = sports.flatten.uniq コメント：破壊的メソッドを使えば新たな変数は不要
+  sports.flatten!.uniq!
   puts "ユーザーの趣味一覧"
   
-  newsports.each.with_index(1) do |sport, i|
+  #newsports.each.with_index(1) do |sport, i|
+  sports.each.with_index(1) do |sport, i|
     puts "No.#{i} #{sport}"
   end
 end
@@ -114,6 +119,7 @@ def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+  puts data[:user][:name]
 
 end
 
@@ -122,6 +128,8 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
+  user_data.merge!(update_data)
+  puts user_data
 
 end
 
@@ -129,6 +137,8 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
+  data2 = data.keys
+  puts data2
 
 end
 
