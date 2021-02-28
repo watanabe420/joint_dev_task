@@ -147,6 +147,17 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
+  if data1.has_key?(:age)
+   puts "OK"
+  else
+   puts "NG"
+  end
+  
+  if data2.has_key?(:age)
+   puts "OK"
+  else
+   puts "NG"
+  end
 
 end
 
@@ -159,6 +170,10 @@ def q16
   ]
 
   # 以下に回答を記載
+  users.each do |values|
+  puts "私の名前は#{values[:name]}です。年齢は#{values[:age]}歳です。"
+  
+end
 
 end
 
